@@ -4,6 +4,8 @@
 
 **AirlineAssist Pro** is an intelligent, multi-agent customer service system designed specifically for airlines, built using Google Cloud's Agent Development Kit (ADK). The system orchestrates multiple specialized AI agents to provide seamless, 24/7 customer support that can handle complex airline-specific scenarios from simple inquiries to emergency rebooking.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/8d382a7c-24dd-44f1-b1fa-4b3427d67310" />
+
 ## Problem Statement
 
 Airlines face significant challenges in customer service:
@@ -16,6 +18,8 @@ Airlines face significant challenges in customer service:
 ## Solution Architecture
 
 ### Multi-Agent System Design
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1a8b557b-98f8-47e2-a32d-53df87915c7b" />
+
 
 #### 1. **Orchestrator Agent** (Master Controller)
 - Routes customer inquiries to appropriate specialist agents
