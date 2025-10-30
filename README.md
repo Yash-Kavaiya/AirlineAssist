@@ -4,7 +4,7 @@
 
 **AirlineAssist Pro** is an intelligent, multi-agent customer service system designed specifically for airlines, built using Google Cloud's Agent Development Kit (ADK). The system orchestrates multiple specialized AI agents to provide seamless, 24/7 customer support that can handle complex airline-specific scenarios from simple inquiries to emergency rebooking.
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/8d382a7c-24dd-44f1-b1fa-4b3427d67310" />
+<img width="756" height="512" alt="image" src="https://github.com/user-attachments/assets/8d382a7c-24dd-44f1-b1fa-4b3427d67310" />
 
 ## Problem Statement
 
@@ -18,7 +18,7 @@ Airlines face significant challenges in customer service:
 ## Solution Architecture
 
 ### Multi-Agent System Design
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1a8b557b-98f8-47e2-a32d-53df87915c7b" />
+<img width="756" height="512" alt="image" src="https://github.com/user-attachments/assets/1a8b557b-98f8-47e2-a32d-53df87915c7b" />
 
 
 #### 1. **Orchestrator Agent** (Master Controller)
@@ -71,6 +71,8 @@ Airlines face significant challenges in customer service:
 
 ## Technical Implementation
 
+<img width="512" height="786" alt="image" src="https://github.com/user-attachments/assets/4a631430-47f1-47a0-94d4-351f2e2b6c61" />
+
 ### Core Technologies
 
 **Agent Development Kit (ADK)**
@@ -89,19 +91,6 @@ Airlines face significant challenges in customer service:
 - **Speech-to-Text/Text-to-Speech**: Voice integration
 - **Cloud Monitoring**: Performance tracking
 
-### Data Integration
-
-**External APIs**
-- Flight data providers (FlightAware, IATA)
-- Weather services (Google Weather API)
-- Airport information systems
-- Baggage tracking systems
-
-**Internal Systems**
-- Customer reservation databases
-- Loyalty program systems
-- Inventory management
-- Crew scheduling systems
 
 ## Key Features
 
@@ -140,114 +129,6 @@ Orchestrator → Customer: Present options with automatic rebooking
 - Automatic compensation processing
 - Crisis communication coordination
 
-## Sample Agent Interactions
-
-### Scenario 1: Complex Rebooking
-```python
-# Orchestrator Agent coordinates multiple agents
-async def handle_rebooking_request(customer_query):
-    # Parse intent and extract key information
-    flight_info = await flight_ops_agent.get_flight_status(flight_number)
-    
-    if flight_info.status == "CANCELLED":
-        # Get alternative options
-        alternatives = await booking_agent.find_alternatives(
-            origin=flight_info.origin,
-            destination=flight_info.destination,
-            date=flight_info.date,
-            passenger_count=customer.party_size
-        )
-        
-        # Check policies for rebooking
-        policies = await policy_agent.get_rebooking_rules(
-            fare_class=customer.booking.fare_class
-        )
-        
-        # Apply loyalty benefits
-        benefits = await loyalty_agent.get_member_benefits(
-            customer_id=customer.id
-        )
-        
-        # Present coordinated solution
-        return await orchestrator.present_rebooking_options(
-            alternatives, policies, benefits
-        )
-```
-
-### Scenario 2: Baggage Claim
-```python
-async def track_baggage(bag_tag_number):
-    # Baggage Agent handles tracking
-    status = await baggage_agent.track_bag(bag_tag_number)
-    
-    if status.location == "DELAYED":
-        # Coordinate with operations for delivery
-        delivery_info = await flight_ops_agent.get_next_available_flight(
-            from_airport=status.current_location,
-            to_airport=status.destination
-        )
-        
-        # Check compensation eligibility
-        compensation = await policy_agent.check_baggage_compensation(
-            delay_hours=status.delay_hours,
-            customer_status=customer.loyalty_tier
-        )
-        
-        return await orchestrator.provide_baggage_update(
-            tracking_info=status,
-            delivery_estimate=delivery_info,
-            compensation=compensation
-        )
-```
-
-## Implementation Plan
-
-### Phase 1: Core Agent Development (Week 1-2)
-- Set up ADK environment and project structure
-- Implement basic agent classes
-- Create agent communication protocols
-- Develop orchestrator logic
-
-### Phase 2: Data Integration (Week 2-3)
-- Connect to flight data APIs
-- Set up BigQuery data warehouse
-- Implement real-time data syncing
-- Create customer data models
-
-### Phase 3: Advanced Features (Week 3-4)
-- Multi-language support
-- Voice integration
-- Proactive notifications
-- Emergency handling protocols
-
-### Phase 4: Testing & Optimization (Week 4)
-- End-to-end testing
-- Performance optimization
-- Documentation completion
-- Demo preparation
-
-## Demonstration Scenarios
-
-### Demo Script (3-minute video)
-
-**Scene 1: Simple Inquiry (30 seconds)**
-- Customer asks about flight status
-- Quick response with real-time information
-
-**Scene 2: Complex Problem (90 seconds)**
-- Flight cancellation scenario
-- Multiple agents working together
-- Automatic rebooking with policy consideration
-- Loyalty benefits applied
-
-**Scene 3: Emergency Situation (45 seconds)**
-- Weather-related mass cancellation
-- Proactive customer notifications
-- Coordinated rebooking effort
-
-**Scene 4: Analytics Dashboard (15 seconds)**
-- BigQuery analytics showing system performance
-- Customer satisfaction metrics
 
 ## Competitive Advantages
 
